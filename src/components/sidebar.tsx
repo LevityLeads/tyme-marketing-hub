@@ -12,6 +12,8 @@ import {
   BarChart3,
   Settings,
   Sparkles,
+  TrendingUp,
+  Calendar,
 } from "lucide-react";
 
 const navItems = [
@@ -20,7 +22,9 @@ const navItems = [
   { name: "SEO Content", href: "/seo", icon: FileText },
   { name: "Video Maker", href: "/video", icon: Video },
   { name: "Paid Ads", href: "/ads", icon: Megaphone },
+  { name: "Calendar", href: "/calendar", icon: Calendar },
   { name: "Brand Assets", href: "/brand", icon: Palette },
+  { name: "ROI Dashboard", href: "/roi", icon: TrendingUp },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
 ];
 
@@ -32,19 +36,13 @@ export function Sidebar() {
       {/* Logo */}
       <div className="p-6 border-b border-tyme-border">
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative">
-            {/* TymeBank logo representation - stacked lines */}
-            <div className="w-10 h-10 flex flex-col justify-center gap-[3px]">
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-            </div>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white">Tyme</span>
-            <span className="text-lg font-light text-gray-400">Hub</span>
+          <img
+            src="/images/tymelogo.png"
+            alt="TymeBank"
+            className="h-8 w-auto"
+          />
+          <div className="text-sm font-medium text-gray-400 uppercase tracking-widest">
+            Studio
           </div>
         </Link>
       </div>

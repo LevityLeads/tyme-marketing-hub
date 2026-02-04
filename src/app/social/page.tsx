@@ -15,6 +15,8 @@ import {
   Smile,
   Clock,
   CheckCircle,
+  Globe,
+  ChevronDown,
 } from "lucide-react";
 
 const platforms = [
@@ -24,24 +26,100 @@ const platforms = [
   { name: "Facebook", icon: Facebook, color: "from-blue-500 to-blue-600" },
 ];
 
-const generatedPosts = [
-  {
-    platform: "Instagram",
-    content: "🚀 Banking made simple. Banking made Tyme.\n\nOpen your account in under 5 minutes and start saving smarter today. No queues. No paperwork. Just you and your goals.\n\n#TymeBank #DigitalBanking #SouthAfrica #FinTech #GoalSaves",
-    hashtags: ["#TymeBank", "#DigitalBanking", "#SouthAfrica"],
-  },
-  {
-    platform: "Instagram",
-    content: "💰 Your money, your rules.\n\nWith GoalSave, watch your savings grow while you sleep. Set it and forget it - we'll handle the rest.\n\nTap the link in bio to get started 👆\n\n#TymeBank #Savings #MoneyGoals #FinancialFreedom",
-    hashtags: ["#TymeBank", "#Savings", "#MoneyGoals"],
-  },
+const languages = [
+  { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "zu", name: "isiZulu", flag: "🇿🇦" },
+  { code: "af", name: "Afrikaans", flag: "🇿🇦" },
+  { code: "xh", name: "isiXhosa", flag: "🇿🇦" },
+  { code: "st", name: "Sesotho", flag: "🇿🇦" },
+  { code: "tn", name: "Setswana", flag: "🇿🇦" },
 ];
+
+const generatedPostsByLanguage: Record<string, Array<{ platform: string; content: string; hashtags: string[] }>> = {
+  en: [
+    {
+      platform: "Instagram",
+      content: "🚀 Banking made simple. Banking made Tyme.\n\nOpen your account in under 5 minutes and start saving smarter today. No queues. No paperwork. Just you and your goals.\n\n#TymeBank #DigitalBanking #SouthAfrica #FinTech #GoalSaves",
+      hashtags: ["#TymeBank", "#DigitalBanking", "#SouthAfrica"],
+    },
+    {
+      platform: "Instagram",
+      content: "💰 Your money, your rules.\n\nWith GoalSave, watch your savings grow while you sleep. Set it and forget it - we'll handle the rest.\n\nTap the link in bio to get started 👆\n\n#TymeBank #Savings #MoneyGoals #FinancialFreedom",
+      hashtags: ["#TymeBank", "#Savings", "#MoneyGoals"],
+    },
+  ],
+  zu: [
+    {
+      platform: "Instagram",
+      content: "🚀 Ukubhanga kwenziwe kwalula. Ukubhanga kwenziwe kwa-Tyme.\n\nVula i-akhawunti yakho ngaphansi kwemizuzu emi-5 uqale ukonge kahle namuhla. Ayikho imigqa. Ayikho iphepha. Nguwe nje nezinhloso zakho.\n\n#TymeBank #DigitalBanking #SouthAfrica",
+      hashtags: ["#TymeBank", "#DigitalBanking", "#Ukonge"],
+    },
+    {
+      platform: "Instagram",
+      content: "💰 Imali yakho, imithetho yakho.\n\nNge-GoalSave, bukela imali yakho ikhula ngenkathi ulele. Imise bese ukhohlwa - sizokulawula konke.\n\nThepha isixhumanisi ku-bio ukuze uqale 👆\n\n#TymeBank #Ukonge #Izinhloso",
+      hashtags: ["#TymeBank", "#Ukonge", "#Izinhloso"],
+    },
+  ],
+  af: [
+    {
+      platform: "Instagram",
+      content: "🚀 Bankwese eenvoudig gemaak. Bankwese Tyme gemaak.\n\nMaak jou rekening oop in minder as 5 minute en begin vandag slimmer spaar. Geen toue nie. Geen papierwerk nie. Net jy en jou doelwitte.\n\n#TymeBank #DigitaleBankwese #SuidAfrika",
+      hashtags: ["#TymeBank", "#DigitaleBankwese", "#Spaar"],
+    },
+    {
+      platform: "Instagram",
+      content: "💰 Jou geld, jou reëls.\n\nMet GoalSave, kyk hoe jou spaargeld groei terwyl jy slaap. Stel dit en vergeet dit - ons hanteer die res.\n\nTik op die skakel in bio om te begin 👆\n\n#TymeBank #Spaar #GeldDoelwitte",
+      hashtags: ["#TymeBank", "#Spaar", "#GeldDoelwitte"],
+    },
+  ],
+  xh: [
+    {
+      platform: "Instagram",
+      content: "🚀 Ukubhanka kwenziwe lula. Ukubhanka kwenziwe yi-Tyme.\n\nVula iakhawunti yakho ngaphantsi kwemizuzu emi-5 uze uqalise ukonga ngokukrelekrele namhlanje. Akukho migca. Akukho maphepha. Nguwe nje kunye neenjongo zakho.\n\n#TymeBank #DigitalBanking #MzantsiAfrika",
+      hashtags: ["#TymeBank", "#DigitalBanking", "#Ukonga"],
+    },
+    {
+      platform: "Instagram",
+      content: "💰 Imali yakho, imithetho yakho.\n\nNge-GoalSave, bukela imali yakho ikhula ngelixa ulele. Yimisele uze ulibale - siza kulawula konke.\n\nCofa ikhonkco kwi-bio ukuze uqalise 👆\n\n#TymeBank #Ukonga #Iinjongo",
+      hashtags: ["#TymeBank", "#Ukonga", "#Iinjongo"],
+    },
+  ],
+  st: [
+    {
+      platform: "Instagram",
+      content: "🚀 Ho etsa banka ho entsoe bonolo. Ho etsa banka ho entsoe Tyme.\n\nBula ak'haonte ea hau ka metsotso e ka tlase ho 5 'me u qale ho boloka ka bohlale kajeno. Ha ho mela. Ha ho lipampiri. Ke uena feela le lipakane tsa hau.\n\n#TymeBank #DigitalBanking #SouthAfrica",
+      hashtags: ["#TymeBank", "#DigitalBanking", "#HoBoloka"],
+    },
+    {
+      platform: "Instagram",
+      content: "💰 Chelete ea hau, melao ea hau.\n\nKa GoalSave, sheba polokelo ea hau e hola ha u robetse. E beha 'me u e lebale - re tla sebetsana le tse ling.\n\nTobetsa sehokelo ho bio ho qala 👆\n\n#TymeBank #HoBoloka #Lipakane",
+      hashtags: ["#TymeBank", "#HoBoloka", "#Lipakane"],
+    },
+  ],
+  tn: [
+    {
+      platform: "Instagram",
+      content: "🚀 Go dira banka go dirilwe bonolo. Go dira banka go dirilwe Tyme.\n\nBula akhaonte ya gago ka metsotso e e ka fa tlase ga 5 mme o simolole go boloka botlhale gompieno. Ga go na mela. Ga go na dipampiri. Ke wena fela le maikemisetso a gago.\n\n#TymeBank #DigitalBanking #SouthAfrica",
+      hashtags: ["#TymeBank", "#DigitalBanking", "#GoBoloka"],
+    },
+    {
+      platform: "Instagram",
+      content: "💰 Madi a gago, melao ya gago.\n\nKa GoalSave, lebelela dipolokelo tsa gago di gola fa o robetse. E beye mme o e lebale - re tla samagana le tse dingwe.\n\nTobetsa kgolagano mo go bio go simolola 👆\n\n#TymeBank #GoBoloka #Maikemisetso",
+      hashtags: ["#TymeBank", "#GoBoloka", "#Maikemisetso"],
+    },
+  ],
+};
 
 export default function SocialStudio() {
   const [selectedPlatform, setSelectedPlatform] = useState("Instagram");
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [showGenerated, setShowGenerated] = useState(false);
+
+  const currentLanguage = languages.find((l) => l.code === selectedLanguage);
+  const generatedPosts = generatedPostsByLanguage[selectedLanguage] || generatedPostsByLanguage.en;
 
   const handleGenerate = () => {
     setIsGenerating(true);
@@ -72,9 +150,41 @@ export default function SocialStudio() {
         <div className="grid grid-cols-2 gap-8">
           {/* Left Column - Input */}
           <div className="space-y-6">
-            {/* Platform Selector */}
+            {/* Platform & Language Selector */}
             <div className="bg-tyme-card border border-tyme-border rounded-xl p-6">
-              <h3 className="text-sm font-medium text-gray-400 mb-4">Select Platform</h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-medium text-gray-400">Select Platform</h3>
+                {/* Language Dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+                    className="flex items-center gap-2 px-3 py-2 bg-tyme-bg border border-tyme-border rounded-lg hover:border-tyme-cyan/50 transition-all"
+                  >
+                    <Globe className="w-4 h-4 text-tyme-cyan" />
+                    <span className="text-sm text-white">{currentLanguage?.flag} {currentLanguage?.name}</span>
+                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${showLanguageDropdown ? 'rotate-180' : ''}`} />
+                  </button>
+                  {showLanguageDropdown && (
+                    <div className="absolute right-0 top-full mt-2 w-48 bg-tyme-card border border-tyme-border rounded-lg shadow-xl z-50 overflow-hidden">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setSelectedLanguage(lang.code);
+                            setShowLanguageDropdown(false);
+                          }}
+                          className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-tyme-bg transition-colors ${
+                            selectedLanguage === lang.code ? 'bg-tyme-cyan/10 text-tyme-cyan' : 'text-white'
+                          }`}
+                        >
+                          <span>{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="grid grid-cols-4 gap-3">
                 {platforms.map((platform) => (
                   <button
