@@ -31,21 +31,13 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 h-screen w-64 bg-tyme-bg-secondary border-r border-tyme-border flex flex-col z-50">
       {/* Logo */}
       <div className="p-6 border-b border-tyme-border">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative">
-            {/* TymeBank logo representation - stacked lines */}
-            <div className="w-10 h-10 flex flex-col justify-center gap-[3px]">
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-            </div>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white">Tyme</span>
-            <span className="text-lg font-light text-gray-400">Hub</span>
-          </div>
+        <Link href="/" className="flex flex-col items-center">
+          <img
+            src="/images/tymebank-logo.png"
+            alt="TymeBank"
+            className="h-8 w-auto"
+          />
+          <span className="mt-2 text-xs font-semibold tracking-[0.3em] text-gray-400">STUDIO</span>
         </Link>
       </div>
 
