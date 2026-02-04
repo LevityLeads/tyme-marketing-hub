@@ -440,7 +440,9 @@ export default function CalendarView() {
   }));
 
   return (
-    <div className="min-h-screen p-8 pt-20">
+    <div className="min-h-screen bg-tyme-bg relative">
+      <div className="wavy-lines" />
+      <div className="relative z-10 p-8 pt-20">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -591,6 +593,7 @@ export default function CalendarView() {
             <span className="text-sm text-gray-400">{config.label}</span>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

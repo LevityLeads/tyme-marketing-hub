@@ -137,7 +137,9 @@ export default function ROIDashboard() {
   const maxRevenue = Math.max(...monthlyTrend.map((m) => m.revenue));
 
   return (
-    <div className="min-h-screen p-8 pt-20">
+    <div className="min-h-screen bg-tyme-bg relative">
+      <div className="wavy-lines" />
+      <div className="relative z-10 p-8 pt-20">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">ROI Dashboard</h1>
@@ -372,6 +374,7 @@ export default function ROIDashboard() {
           * Compared to equivalent agency services for content creation, campaign
           management, and analytics
         </p>
+      </div>
       </div>
     </div>
   );
