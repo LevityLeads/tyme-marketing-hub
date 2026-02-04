@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tyme-cyan: #00E5CC;
+  --tyme-cyan-dark: #00B8A3;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3A3A;
+}
+
+/* Wavy lines background */
+.wavy-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.wavy-lines::before,
+.wavy-lines::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%232A2A2A' stroke-width='1' d='M0,160 C320,220 420,100 720,160 C1020,220 1120,100 1440,160'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 50% auto;
+}
+
+.wavy-lines::before {
+  top: -50%;
+  left: -50%;
+  animation: wave-move 25s linear infinite;
+}
+
+.wavy-lines::after {
+  top: -30%;
+  left: -30%;
+  animation: wave-move 30s linear infinite reverse;
+  opacity: 0.5;
+}
+
+@keyframes wave-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(25%, 25%);
+  }
+}
+
+/* Cyan glow effect */
+.cyan-glow {
+  box-shadow: 0 0 40px rgba(0, 229, 204, 0.15);
+}
+
+.cyan-glow-text {
+  text-shadow: 0 0 20px rgba(0, 229, 204, 0.5);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 229, 204, 0.1);
+  border-color: rgba(0, 229, 204, 0.3);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00E5CC 0%, #00B8A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply shadow-cyan-glow transform -translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply border border-tyme-border bg-tyme-card text-white font-medium px-6 py-3 rounded-lg transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply border-tyme-cyan/50 bg-tyme-cyan/10;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(31, 31, 31, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
