@@ -18,6 +18,8 @@ const config: Config = {
           cyan: "#00E5CC",
           "cyan-dark": "#00B8A3",
           "cyan-glow": "rgba(0, 229, 204, 0.15)",
+          yellow: "#FFE500",
+          magenta: "#E6007E",
         },
       },
       fontFamily: {
