@@ -22,7 +22,6 @@ const features = [
     description: "AI-powered social media content creation",
     href: "/social",
     icon: MessageSquare,
-    color: "from-cyan-500 to-teal-500",
     stats: "24 posts this week",
   },
   {
@@ -30,7 +29,6 @@ const features = [
     description: "Generate optimized blog posts and articles",
     href: "/seo",
     icon: FileText,
-    color: "from-blue-500 to-cyan-500",
     stats: "12 articles drafted",
   },
   {
@@ -38,7 +36,6 @@ const features = [
     description: "Create short-form videos in minutes",
     href: "/video",
     icon: Video,
-    color: "from-purple-500 to-pink-500",
     stats: "8 videos created",
   },
   {
@@ -46,7 +43,6 @@ const features = [
     description: "Generate high-converting ad copy",
     href: "/ads",
     icon: Megaphone,
-    color: "from-orange-500 to-red-500",
     stats: "32 ad variants",
   },
   {
@@ -54,7 +50,6 @@ const features = [
     description: "Access logos, colors, and guidelines",
     href: "/brand",
     icon: Palette,
-    color: "from-pink-500 to-purple-500",
     stats: "156 assets",
   },
   {
@@ -62,7 +57,6 @@ const features = [
     description: "Track content performance and insights",
     href: "/analytics",
     icon: BarChart3,
-    color: "from-green-500 to-emerald-500",
     stats: "+28% engagement",
   },
 ];
@@ -126,9 +120,7 @@ export default function Dashboard() {
               <Link key={feature.name} href={feature.href}>
                 <div className="group bg-tyme-card border border-tyme-border rounded-xl p-6 card-hover cursor-pointer h-full">
                   <div className="flex items-start justify-between mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center`}
-                    >
+                    <div className="w-12 h-12 rounded-full bg-tyme-cyan flex items-center justify-center">
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
                     <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-tyme-cyan group-hover:translate-x-1 transition-all" />

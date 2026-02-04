@@ -20,7 +20,15 @@ export default function RootLayout({
       <body className={`${inter.className} bg-tyme-bg text-white min-h-screen`}>
         <div className="flex min-h-screen">
           <Sidebar />
-          <main className="flex-1 ml-64">
+          <main className="flex-1 ml-64 relative">
+            {/* Top right logo */}
+            <div className="fixed top-6 right-8 z-50">
+              <img
+                src="/images/tymebank-logo.png"
+                alt="TymeBank"
+                className="h-10 w-auto"
+              />
+            </div>
             {children}
           </main>
         </div>
