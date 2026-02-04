@@ -24,9 +24,9 @@ export default function RootLayout({
             {/* Top right logo */}
             <div className="fixed top-6 right-8 z-50">
               <img
-                src="/images/tymebank-logo.png"
+                src="/images/tymelogo.png"
                 alt="TymeBank"
-                className="h-10 w-auto"
+                className="h-8 w-auto"
               />
             </div>
             {children}

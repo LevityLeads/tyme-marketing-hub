@@ -82,16 +82,29 @@ export default function Analytics() {
               </select>
             </div>
 
-            {/* Mock Chart */}
-            <div className="h-64 flex items-end justify-between gap-2 px-4">
-              {[40, 65, 45, 80, 55, 90, 70].map((height, index) => (
-                <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                  <div
-                    className="w-full bg-gradient-to-t from-tyme-cyan to-tyme-cyan-dark rounded-t-lg transition-all hover:opacity-80"
-                    style={{ height: `${height}%` }}
-                  />
-                  <span className="text-xs text-gray-500">
-                    {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][index]}
+            {/* Chart */}
+            <div className="h-64 flex items-end gap-4 px-4">
+              {[
+                { day: "Mon", value: 340000, height: 40 },
+                { day: "Tue", value: 520000, height: 65 },
+                { day: "Wed", value: 380000, height: 45 },
+                { day: "Thu", value: 680000, height: 80 },
+                { day: "Fri", value: 450000, height: 55 },
+                { day: "Sat", value: 780000, height: 90 },
+                { day: "Sun", value: 590000, height: 70 },
+              ].map((item, index) => (
+                <div key={index} className="flex-1 flex flex-col items-center">
+                  <div className="w-full flex flex-col items-center justify-end h-52">
+                    <span className="text-xs text-tyme-cyan mb-1">
+                      {(item.value / 1000).toFixed(0)}K
+                    </span>
+                    <div
+                      className="w-full bg-gradient-to-t from-tyme-cyan to-tyme-cyan-dark rounded-t-lg transition-all hover:opacity-80 cursor-pointer"
+                      style={{ height: `${item.height}%` }}
+                    />
+                  </div>
+                  <span className="text-xs text-gray-500 mt-2">
+                    {item.day}
                   </span>
                 </div>
               ))}

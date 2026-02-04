@@ -10,8 +10,9 @@ import {
   Megaphone,
   Palette,
   BarChart3,
-  Settings,
   Sparkles,
+  TrendingUp,
+  Calendar,
 } from "lucide-react";
 
 const navItems = [
@@ -20,7 +21,9 @@ const navItems = [
   { name: "SEO Content", href: "/seo", icon: FileText },
   { name: "Video Maker", href: "/video", icon: Video },
   { name: "Paid Ads", href: "/ads", icon: Megaphone },
-  { name: "Brand Assets", href: "/brand", icon: Palette },
+  { name: "Calendar", href: "/calendar", icon: Calendar },
+  { name: "Brand", href: "/brand", icon: Palette },
+  { name: "ROI Dashboard", href: "/roi", icon: TrendingUp },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
 ];
 
@@ -31,20 +34,14 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 h-screen w-64 bg-tyme-bg-secondary border-r border-tyme-border flex flex-col z-50">
       {/* Logo */}
       <div className="p-6 border-b border-tyme-border">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative">
-            {/* TymeBank logo representation - stacked lines */}
-            <div className="w-10 h-10 flex flex-col justify-center gap-[3px]">
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-              <div className="h-[3px] w-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark rounded-full" />
-            </div>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white">Tyme</span>
-            <span className="text-lg font-light text-gray-400">Hub</span>
+        <Link href="/" className="block">
+          <img
+            src="/images/tymelogo.png"
+            alt="TymeBank"
+            className="h-7 w-auto mb-1"
+          />
+          <div className="text-[10px] font-medium text-gray-500 uppercase tracking-[0.3em] ml-[52px]">
+            Studio
           </div>
         </Link>
       </div>
@@ -81,14 +78,6 @@ export function Sidebar() {
 
       {/* Bottom section */}
       <div className="p-4 border-t border-tyme-border">
-        <Link
-          href="/settings"
-          className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-tyme-card transition-all duration-200"
-        >
-          <Settings className="w-5 h-5" />
-          <span className="font-medium">Settings</span>
-        </Link>
-        
         {/* User */}
         <div className="mt-4 flex items-center gap-3 px-4 py-3 bg-tyme-card rounded-lg">
           <div className="w-8 h-8 rounded-full bg-gradient-to-r from-tyme-cyan to-tyme-cyan-dark flex items-center justify-center text-black font-bold text-sm">
